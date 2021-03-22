@@ -1,31 +1,32 @@
 'use strict';
 const faker = require('faker');
-
+const models = require('../models/index')
+const Projects = models.Projects
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Posts', [{
+    return queryInterface.bulkInsert('Projects', [{
       Project_name: faker.lorem.words(),
       Start_date: faker.date.past(),
       Planned_end_date: faker.date.future(),
-      Description: faker.lorem.sentences(),
+      Description: faker.lorem.sentence(),
       Project_code: "1294"
     },
     {
       Project_name: faker.lorem.words(),
       Start_date: faker.date.past(),
       Planned_end_date: faker.date.future(),
-      Description: faker.lorem.sentences(),
+      Description: faker.lorem.sentence(),
       Project_code: "1297"
     },
     { 
       Project_name: faker.lorem.words(),
       Start_date: faker.date.past(),
       Planned_end_date: faker.date.future(),
-      Description: faker.lorem.sentences(),
+      Description: faker.lorem.sentence(),
       Project_code: "1299"}
   ], {}).then(() => {
-    return Post.findAll().then((projects) => {
+    return Projects.findAll().then((projects) => {
       console.log('projects', projects)
       return queryInterface.bulkInsert('Employees', [{
       Name: faker.name.firstName(),
