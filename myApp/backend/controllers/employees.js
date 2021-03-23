@@ -13,13 +13,13 @@ exports.index = async (req, res, next) => {
 }
 
 exports.create = async (req, res, next) => {
+  const Project_id = req.params.projectId
   const {
     Name,
     Email,
     Hire_date,
     Salary,
-    Job_Title,
-    Project_id
+    Job_Title
   } = req.body
 
   const employee = await Employees.create({
@@ -35,6 +35,7 @@ exports.create = async (req, res, next) => {
 }
 
 exports.update = async (req, res, next) => {
+  const Project_id = req.params.projectId
   const employeeId = req.params.employeeId
   const employee = await Employees.findByPk(employeeId)
 
@@ -43,8 +44,7 @@ exports.update = async (req, res, next) => {
     Email,
     Hire_date,
     Salary,
-    Job_Title,
-    Project_id
+    Job_Title
   } = req.body
 
   const updatedEmployee = await employee.update({
