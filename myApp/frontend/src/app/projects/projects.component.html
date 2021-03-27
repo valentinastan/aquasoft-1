@@ -1,0 +1,10 @@
+<div *ngIf="projects">
+  <ul>
+    <li *ngFor="let project of projects">
+        <span >{{project.id}}</span> 
+        <span>{{project.Project_name}}</span>
+        <span >{{project.Start_date | date:'short'}}</span> 
+        <app-employees [project]='project'></app-employees>
+    </li>
+  </ul>
+</div>

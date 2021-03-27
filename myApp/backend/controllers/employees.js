@@ -47,6 +47,8 @@ exports.update = async (req, res, next) => {
     Job_Title
   } = req.body
 
+  console.log(Name, req.body);
+
   const updatedEmployee = await employee.update({
     Name,
     Email,

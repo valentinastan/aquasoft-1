@@ -1,0 +1,23 @@
+<!-- <span >{{employee.id}}</span> 
+<input>{{employee.Name}}</input>
+<input>{{employee.Email}}</input>  -->
+
+<div *ngIf="employee">
+  <div [formGroup]="employeesForm">
+    <div><span>id: </span>{{employee.id}}</div>
+    <div>
+      <p>{{employeesForm.name}}</p>
+      <label for="employee-name">Employee name: </label>
+      <input type="text" formControlName="Name" placeholder="Employee name"/>
+    </div>
+    <div>
+      <p>{{employeesForm.email}}</p>
+      <label for="employee-email">Employee email: </label>
+      <input type="text" formControlName="Email" placeholder="Employee email"/>
+    </div>
+    <button (click)="update()">update</button>
+  </div>
+</div>
+
+
+

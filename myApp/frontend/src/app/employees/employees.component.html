@@ -1,0 +1,7 @@
+<div *ngIf="employees">
+  <ul>
+    <li *ngFor="let employee of employees">
+        <app-employee-table-row [employee]='employee'></app-employee-table-row>
+    </li>
+  </ul>
+</div>
