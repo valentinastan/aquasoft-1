@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../projects.service';
+import { ProjectsService } from '../services/projects-service/projects.service';
 import { Project } from '../types/project';
 
 @Component({
@@ -15,5 +15,6 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     this.projectService.getProjects().subscribe((projects => this.projects = projects))
   }
+
 
 }

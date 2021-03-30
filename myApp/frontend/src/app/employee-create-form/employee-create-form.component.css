@@ -1,0 +1,30 @@
+div #cdk-overlay-0 .cdk-overlay-pane {
+  width: 50% !important;
+}
+
+.mat-typography div {
+  margin: 25px;
+}
+
+.addEmployee-modal > div > label {
+  text-align: center;
+  color: #17A2B8;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.mat-form-field {
+  margin: 20px;
+}
+
+.mat-typography div {
+  font-size: medium;
+}
+
+.mat-typography input {
+  height: 30px;
+}
+
+.mat-dialog-actions {
+  justify-content: space-between;
+}

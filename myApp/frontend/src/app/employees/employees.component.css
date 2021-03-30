@@ -1,0 +1,31 @@
+.table tbody {
+  border: 2px solid #17A2B8;
+}
+
+.menu {
+  display: flex;
+}
+
+.employees a, button {
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+div.menu-bar {
+  position: sticky;
+  top: 0;
+}
+
+div.menu-bar a {
+  background-color: white;
+}
+
+div.menu-bar a:hover {
+  background-color: #17A2B8;
+}
+
+
+
+
+
+

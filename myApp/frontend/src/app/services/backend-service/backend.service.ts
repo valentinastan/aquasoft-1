@@ -37,5 +37,15 @@ export class BackendService {
     return this.http.put<T>(path, body, this.httpOptions)
   }
 
+  post<T>(route: string, body?: paramsType) : Observable<T> {
+    const path = this.apiURL + route
+    return this.http.post<T>(path, body, this.httpOptions)
+  }
+
+  delete<T>(route: string, params?: paramsType) : Observable<T> {
+    const path = this.apiURL + route
+    return this.http.delete<T>(path, this.httpOptions)
+  }
+
 
 }

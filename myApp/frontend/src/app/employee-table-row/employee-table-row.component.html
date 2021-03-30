@@ -1,23 +1,24 @@
-<!-- <span >{{employee.id}}</span> 
-<input>{{employee.Name}}</input>
-<input>{{employee.Email}}</input>  -->
-
-<div *ngIf="employee">
-  <div [formGroup]="employeesForm">
-    <div><span>id: </span>{{employee.id}}</div>
-    <div>
-      <p>{{employeesForm.name}}</p>
-      <label for="employee-name">Employee name: </label>
-      <input type="text" formControlName="Name" placeholder="Employee name"/>
-    </div>
-    <div>
-      <p>{{employeesForm.email}}</p>
-      <label for="employee-email">Employee email: </label>
-      <input type="text" formControlName="Email" placeholder="Employee email"/>
-    </div>
-    <button (click)="update()">update</button>
-  </div>
-</div>
-
-
-
+<tr *ngIf="employee" [formGroup]="employeesForm" class="employee-row"> 
+  <td>
+    <!-- <label for="employee-name">Employee name: </label> -->
+    <input class="form-control" type="text" formControlName="Name" placeholder="Employee name"/>
+  </td>
+  <td>
+    <!-- <label for="employee-email">Employee email: </label> -->
+    <input class="form-control" type="text" formControlName="Email" placeholder="Employee email"/>
+  </td>
+  <td>
+    <label for="employee-hire-date">{{employee.Hire_date | date:"MM/dd/yyyy"}}</label>
+    <!-- <input type="date" formControlName="HireDate" placeholder="Hire date"/> -->
+  </td>
+  <td>
+    <!-- <label for="employee-salary">Salary: </label> -->
+    <input class="form-control" type="number" formControlName="Salary" placeholder="Salary"/>
+  </td>
+  <td>
+    <!-- <label for="employee-job-title">Job title: </label> -->
+    <input class="form-control" type="text" formControlName="Job_Title" placeholder="Job title"/>
+  </td>
+  <td><button (click)="update()" type="button" class="btn btn-outline-info">Update</button></td>
+  <td><button (click)="delete()" type="button" class="btn btn-outline-info">Delete</button></td>
+</tr>

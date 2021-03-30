@@ -1,10 +1,38 @@
 <div *ngIf="projects">
-  <ul>
+  <h1>Projects</h1>
+  <!-- <ul>
     <li *ngFor="let project of projects">
-        <span >{{project.id}}</span> 
-        <span>{{project.Project_name}}</span>
-        <span >{{project.Start_date | date:'short'}}</span> 
-        <app-employees [project]='project'></app-employees>
-    </li>
-  </ul>
+        <div >{{project.Project_code}}</div> 
+        <div>{{project.Project_name | uppercase}}</div>
+        <div>{{project.Description}}</div>
+        <div >{{project.Start_date | date:"MM/dd/yyyy"}}</div>
+        <div>{{project.Planned_end_date | date:"MM/dd/yyyy"}}</div>
+        
+        <a class="button" routerLink='/employees/{{project.id}}' routerLinkActive="active">Show employees</a>  -->
+        <!-- <app-employees [project]='project'></app-employees> -->
+    <!-- </li>
+  </ul> -->
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">PROJECT CODE</th>
+        <th scope="col">NAME</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">START DATE</th>
+        <th scope="col">PLANNED END DATE</th>
+        <th scope="col">DETAILS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects" >
+        <th scope="row">{{project.Project_code}}</th>
+        <td class="projectName">{{project.Project_name | uppercase}}</td>
+        <td>{{project.Description}}</td>
+        <td>{{project.Start_date | date:"MM/dd/yyyy"}}</td>
+        <td>{{project.Planned_end_date | date:"MM/dd/yyyy"}}</td>
+        <td><a type="button" class="btn btn-outline-info" routerLink='/employees/{{project.id}}' routerLinkActive="active">Show employees</a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

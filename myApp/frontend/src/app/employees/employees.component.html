@@ -1,7 +1,29 @@
-<div *ngIf="employees">
-  <ul>
-    <li *ngFor="let employee of employees">
-        <app-employee-table-row [employee]='employee'></app-employee-table-row>
-    </li>
-  </ul>
+<div class="employees">
+  <div class="menu-bar">
+    <a type="button" class="btn btn-outline-info" routerLink="/projects" routerLinkActive="active">Go back to projects</a>
+  </div>
+  <h1>Employees</h1>
+
+  <table *ngIf="employees" class="table table-hover">
+    <thead>
+      <tr>
+        <th >Name</th>
+        <th >Email</th>
+        <th >Hire date</th>
+        <th >Salary</th>
+        <th >Job title</th>
+        <th >EDIT</th>
+        <th >DELETE</th>
+      </tr>
+    </thead>
+
+    <tbody app-employee-table-row *ngFor="let employee of employees" [employee]='employee' (employeeChanged)="employeeChangedHandler($event)">
+      <!-- <div *ngFor="let employee of employees"> -->
+      <!-- <tr app-employee-table-row  *ngFor="let employee of employees" [employee]='employee' [formGroup]="employeesForm" (employeeChanged)="employeeChangedHandler($event)">
+      </tr > -->
+      <!-- </div> -->
+    </tbody>
+  </table>
 </div>
+
+<button mat-button type="button" class="btn btn-outline-info" (click)="openDialog()" (employeeChanged)="employeeChangedHandler($event)"> Add a new employee </button>
