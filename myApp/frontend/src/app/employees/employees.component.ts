@@ -27,7 +27,6 @@ export class EmployeesComponent implements OnInit {
   }
 
   employeeChangedHandler(employeeEvent) {
-    console.log("create case", employeeEvent)
     switch(employeeEvent.type) {
       case "UPDATE" :
          this.updateOnTime(employeeEvent.employee);

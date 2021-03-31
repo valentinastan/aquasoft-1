@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Add a new employee</h1>
+
 <mat-dialog-content class="mat-typography">
-<div  [formGroup]="employeesForm" autocomplete="off"  class="addEmployee-modal">
-    
+  <div [formGroup]="employeesForm" autocomplete="off"  class="addEmployee-modal">
     <mat-form-field>
       <!-- <label for="employee-name">Name*: </label> -->
       <input matInput class="form-control" type="text" formControlName="Name" placeholder="Name"/>
@@ -35,8 +35,8 @@
       <mat-error *ngIf="hasError('Job_Title', 'maxlength')">You have more than 60 characters</mat-error>
     </mat-form-field>
   </div>
- 
 </mat-dialog-content>
+
 <mat-dialog-actions >
   <button type="button" class="btn btn-outline-info mat-raised-button"  [disabled]="!employeesForm.valid" (click)="create()">Add</button>
   <button type="button" class="btn btn-outline-info  mat-raised-button" (click)="close()">Cancel</button>

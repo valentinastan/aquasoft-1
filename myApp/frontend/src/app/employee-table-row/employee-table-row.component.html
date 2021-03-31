@@ -1,22 +1,17 @@
 <tr *ngIf="employee" [formGroup]="employeesForm" class="employee-row"> 
   <td>
-    <!-- <label for="employee-name">Employee name: </label> -->
     <input class="form-control" type="text" formControlName="Name" placeholder="Employee name"/>
   </td>
   <td>
-    <!-- <label for="employee-email">Employee email: </label> -->
     <input class="form-control" type="text" formControlName="Email" placeholder="Employee email"/>
   </td>
   <td>
     <label for="employee-hire-date">{{employee.Hire_date | date:"MM/dd/yyyy"}}</label>
-    <!-- <input type="date" formControlName="HireDate" placeholder="Hire date"/> -->
   </td>
   <td>
-    <!-- <label for="employee-salary">Salary: </label> -->
     <input class="form-control" type="number" formControlName="Salary" placeholder="Salary"/>
   </td>
   <td>
-    <!-- <label for="employee-job-title">Job title: </label> -->
     <input class="form-control" type="text" formControlName="Job_Title" placeholder="Job title"/>
   </td>
   <td><button (click)="update()" type="button" class="btn btn-outline-info">Update</button></td>

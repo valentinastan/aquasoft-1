@@ -26,11 +26,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let project of projects" >
-        <th scope="row">{{project.Project_code}}</th>
+        <th class="centered-dates">{{project.Project_code}}</th>
         <td class="projectName">{{project.Project_name | uppercase}}</td>
         <td>{{project.Description}}</td>
-        <td>{{project.Start_date | date:"MM/dd/yyyy"}}</td>
-        <td>{{project.Planned_end_date | date:"MM/dd/yyyy"}}</td>
+        <td class="centered-dates">{{project.Start_date | date:"MM/dd/yyyy"}}</td>
+        <td class="centered-dates">{{project.Planned_end_date | date:"MM/dd/yyyy"}}</td>
         <td><a type="button" class="btn btn-outline-info" routerLink='/employees/{{project.id}}' routerLinkActive="active">Show employees</a></td>
       </tr>
     </tbody>

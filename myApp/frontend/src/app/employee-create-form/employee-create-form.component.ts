@@ -27,7 +27,7 @@ export class EmployeeCreateFormComponent {
 
   ngOnInit(): void {
     this.employeesForm = this.fb.group({
-      Name: this.fb.control('', [Validators.required, Validators.maxLength(60), Validators.pattern(/^[a-zA-Z ]+$/)]),
+      Name: this.fb.control('', [Validators.required, Validators.maxLength(60), Validators.pattern(/^[a-zA-Z -]+$/)]),
       Email: this.fb.control('', [Validators.required, Validators.email]),
       Hire_date: this.fb.control(new Date()),
       Salary: this.fb.control('', [Validators.required, Validators.max(100000)]),
@@ -45,7 +45,6 @@ export class EmployeeCreateFormComponent {
     }
   }
 
-
   create(): void {
     console.log(this.employeesForm.value)
     this.employeeService.create(
@@ -62,5 +61,4 @@ export class EmployeeCreateFormComponent {
   close(): void {
     this.dialogRef.close()
   }
-
 }
