@@ -1,19 +1,29 @@
 <tr *ngIf="employee" [formGroup]="employeesForm" class="employee-row"> 
   <td>
     <input class="form-control" type="text" formControlName="Name" placeholder="Employee name"/>
+    <mat-error *ngIf="hasError('Name', 'required')">Name is required</mat-error>
+    <mat-error *ngIf="hasError('Name', 'pattern')">You must introduce only letters</mat-error>
+    <mat-error *ngIf="hasError('Name', 'maxlength')">You have more than 60 characters</mat-error>
   </td>
   <td>
     <input class="form-control" type="text" formControlName="Email" placeholder="Employee email"/>
+    <mat-error *ngIf="hasError('Email', 'required')">Email is required</mat-error>
+    <mat-error *ngIf="hasError('Email', 'email')">example@example.com</mat-error>
   </td>
   <td>
     <label for="employee-hire-date">{{employee.Hire_date | date:"MM/dd/yyyy"}}</label>
   </td>
   <td>
     <input class="form-control" type="number" formControlName="Salary" placeholder="Salary"/>
+    <mat-error *ngIf="hasError('Salary', 'required')">Salary is required</mat-error>
+    <mat-error *ngIf="hasError('Salary', 'max')">Too big value</mat-error>
   </td>
   <td>
     <input class="form-control" type="text" formControlName="Job_Title" placeholder="Job title"/>
+    <mat-error *ngIf="hasError('Job_Title', 'required')">Job title is required</mat-error>
+    <mat-error *ngIf="hasError('Job_Title', 'pattern')">You must introduce only letters</mat-error>
+    <mat-error *ngIf="hasError('Job_Title', 'maxlength')">You have more than 60 characters</mat-error>
   </td>
-  <td><button (click)="update()" type="button" class="btn btn-outline-info">Update</button></td>
+  <td><button [disabled]="!employeesForm.valid" (click)="update()" type="button" class="btn btn-outline-info">Update</button></td>
   <td><button (click)="delete()" type="button" class="btn btn-outline-info">Delete</button></td>
 </tr>

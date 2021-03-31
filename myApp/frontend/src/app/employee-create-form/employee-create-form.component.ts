@@ -38,13 +38,7 @@ export class EmployeeCreateFormComponent {
   public hasError = (controlName: string, errorName: string) =>{
     return this.employeesForm.controls[controlName].hasError(errorName);
   }
-
-  public validate() {
-    if(this.employeesForm.valid){
-      this.create()
-    }
-  }
-
+  
   create(): void {
     console.log(this.employeesForm.value)
     this.employeeService.create(

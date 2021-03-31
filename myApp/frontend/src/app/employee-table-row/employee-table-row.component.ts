@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmployeesService } from '../services/employees-service/employees.service';
 import { Employee } from '../types/employee';
 
@@ -21,12 +21,16 @@ export class EmployeeTableRowComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeesForm = this.fb.group({
-      Name: this.fb.control(this.employee.Name),
-      Email: this.fb.control(this.employee.Email),
+      Name: this.fb.control(this.employee.Name, [Validators.required, Validators.maxLength(60), Validators.pattern(/^[a-zA-Z -]+$/)]),
+      Email: this.fb.control(this.employee.Email, [Validators.required, Validators.email]),
       Hire_date: this.fb.control(this.employee.Hire_date),
-      Salary: this.fb.control(this.employee.Salary),
-      Job_Title: this.fb.control(this.employee.Job_Title)
+      Salary: this.fb.control(this.employee.Salary, [Validators.required, Validators.max(100000)]),
+      Job_Title: this.fb.control(this.employee.Job_Title, [Validators.required, Validators.maxLength(60), Validators.pattern(/^[a-zA-Z -]+$/)])
     })
+  }
+
+  public hasError = (controlName: string, errorName: string) =>{
+    return this.employeesForm.controls[controlName].hasError(errorName);
   }
 
   update(): void {
